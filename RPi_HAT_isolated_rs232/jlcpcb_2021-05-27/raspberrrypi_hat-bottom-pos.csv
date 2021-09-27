@@ -1,0 +1,30 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,0.1uF,C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,133.7,-92.325,270,bottom
+C2,0.1uF,C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,103.632,-74.549,180,bottom
+C21,10 uF,C_1206_3216Metric,95.475,-94,0,bottom
+C22,10 uF,C_1206_3216Metric,95.475,-97,0,bottom
+C23,10 uF,C_1206_3216Metric,95.5,-100,0,bottom
+C24,22 uF,C_0805_2012Metric,95,-77.44,90,bottom
+C25,22 uF,C_0805_2012Metric,97.8,-71.5,90,bottom
+C26,22 uF,C_0805_2012Metric,134.05,-74.4,90,bottom
+C27,22 uF,C_0805_2012Metric,136.75,-74.4,90,bottom
+C28,10 uF,C_1206_3216Metric,95.475,-103,0,bottom
+C29,0.1uF,C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,116.2,-86.775,270,bottom
+C31,0.1uF,C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,87.376,-76.638,90,bottom
+C32,0.01 uF,C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,87.376,-86.512,270,bottom
+D1,D,D_SOD-123,119.5,-88,90,bottom
+D21,D,D_SMC,121.6,-102.5,0,bottom
+D26,D_Zener,D_SMB,98.3,-82.2,0,bottom
+R1,1K,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,88.21,-106.89,180,bottom
+R6,3.9K,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,129.5,-84.5,270,bottom
+R8,3.9K,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,126.5,-84.475,270,bottom
+R11,DNP,R_0805_HandSoldering,136.25,-86.5,0,bottom
+R22,330,R_0805_2012Metric,89.025,-97,180,bottom
+R25,100k,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,88.275,-101.19,0,bottom
+R26,330,R_0805_2012Metric,106.53,-70.155,270,bottom
+R27,1k,R_0805_2012Metric,132.5,-79.975,270,bottom
+R28,330,R_0805_2012Metric,119.5,-82.225,270,bottom
+R29,10K,R_0805_2012Metric,132.5,-84.475,270,bottom
+R31,1k,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,87.376,-71.882,90,bottom
+R32,100,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,87.376,-82.156,90,bottom
+U2,CAT24C32,SOIC-8_3.9x4.9mm_Pitch1.27mm,129.7,-92.6,90,bottom

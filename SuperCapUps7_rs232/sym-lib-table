@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name drekkar_com)(type Legacy)(uri ${KIPRJMOD}/drekkar_com.lib)(options "")(descr "")(disabled))
+  (lib (name board-rescue)(type Legacy)(uri ${KIPRJMOD}/board-rescue.lib)(options "")(descr ""))
+  (lib (name recom-r-7xxxp)(type Legacy)(uri /home/henrik/tmp/recom-r-7xxxp.lib)(options "")(descr "")(disabled))
+  (lib (name eit_proprietary)(type Legacy)(uri /home/henrik/git/drekkar_kicad/eit_kicad_libraries/eit_symbol_library/eit_proprietary.lib)(options "")(descr ""))
+)

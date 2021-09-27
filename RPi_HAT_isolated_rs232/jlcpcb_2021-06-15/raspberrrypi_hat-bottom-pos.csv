@@ -1,0 +1,47 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,0.1uF,C_0805_2012Metric,133.7,-92.325,270,bottom
+C2,0.1uF,C_0805_2012Metric,136.7,-89.9,0,bottom
+C3,10nF,C_0805_2012Metric,111.3,-68.475,180,bottom
+C20,10nF,C_0805_2012Metric,106.8,-106.6,0,bottom
+C21,10 uF,C_1206_3216Metric,119.38,-92.84,90,bottom
+C22,10 uF,C_1206_3216Metric,91.694,-111.63,270,bottom
+C23,10 uF,C_1206_3216Metric,114.3,-99.2,180,bottom
+C24,0.1 uF,C_0805_2012Metric,107.4,-83.8,180,bottom
+C25,47 uF,C_1206_3216Metric,98.15,-71.3625,90,bottom
+C26,47 uF,C_1206_3216Metric,136.5,-98.3625,90,bottom
+C27,47 uF,C_1206_3216Metric,136.5,-79.3625,270,bottom
+C28,10 uF,C_1206_3216Metric,97.75,-106.25,270,bottom
+C29,0.1uF,C_0805_2012Metric_Pad1.15x1.40mm_HandSolder,116.2,-86.775,270,bottom
+C31,0.1uF,C_0805_2012Metric,87.376,-76.638,90,bottom
+C32,0.01 uF,C_0805_2012Metric,87.376,-86.512,270,bottom
+C60,0.1uF,C_0805_2012Metric,93,-90,0,bottom
+C61,0.1uF,C_0805_2012Metric,100.8625,-89,0,bottom
+C62,0.1uF,C_0805_2012Metric,100.8875,-92,0,bottom
+C63,0.1uF,C_0805_2012Metric,96.9625,-89,180,bottom
+C64,0.1uF,C_0805_2012Metric,100.8125,-94.75,0,bottom
+C70,10 uF,C_1206_3216Metric,102,-112.5375,270,bottom
+C71,10 uF,C_1206_3216Metric,111.3,-106.6,0,bottom
+D1,LED,LED_0805_2012Metric,80.37,-103.71,270,bottom
+D21,D,D_SMA,120.8,-102.5,180,bottom
+D24,LED,LED_0805_2012Metric,136,-109,180,bottom
+D26,D_Zener,D_SMB,131.6,-101.25,90,bottom
+D39,LED,LED_0805_2012Metric,80.2,-74.0625,270,bottom
+Q1,Q_PNP_BEC,SOT-23,84.53,-107.76,180,bottom
+Q39,Q_PNP_BEC,SOT-23,84,-74,180,bottom
+R1,330,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,81.05,-107.8,270,bottom
+R2,3K3,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,86.71,-103.23,270,bottom
+R3,220,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,132,-109,180,bottom
+R6,3.9K,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,129.5,-84.5,270,bottom
+R8,3.9K,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,126.61,-84.49,270,bottom
+R11,DNP,R_0805_HandSoldering,136.25,-86.5,0,bottom
+R20,220,R_1206_3216Metric,107.1,-103.9,180,bottom
+R26,150,R_0805_2012Metric,106.53,-70.155,270,bottom
+R27,1K,R_0805_2012Metric,132.5,-79.975,270,bottom
+R28,1K,R_0805_2012Metric,100.8875,-97.425,0,bottom
+R29,10K,R_0805_2012Metric,132.5,-84.475,270,bottom
+R31,2K2,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,87.376,-71.882,90,bottom
+R32,150,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,87.376,-82.156,90,bottom
+R38,150,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,81.58,-79.06,0,bottom
+R39,2K2,R_0805_2012Metric_Pad1.15x1.40mm_HandSolder,85,-69.775,270,bottom
+U2,CAT24C32,SOIC-8_3.9x4.9mm_Pitch1.27mm,129.7,-92.6,90,bottom
+U60,MAX232ESE+T,SOIC-16_3.9x9.9mm_P1.27mm,93.275,-97.075,180,bottom

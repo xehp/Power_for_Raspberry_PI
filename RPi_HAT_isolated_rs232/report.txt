@@ -1,0 +1,33 @@
+Info: Backing up file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/sym-lib-table” to file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/rescue-backup/sym-lib-table-2020-08-09-19-13-19”.
+Info: Backing up file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/raspberrrypi_hat.sch” to file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/rescue-backup/raspberrrypi_hat-2020-08-09-19-13-19.sch”.
+Info: Backing up file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/raspberrrypi_hat.pro” to file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/rescue-backup/raspberrrypi_hat-2020-08-09-19-13-19.pro”.
+Info: Backing up file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/raspberrrypi_hat-cache.lib” to file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/rescue-backup/raspberrrypi_hat-cache-2020-08-09-19-13-19.lib”.
+Info: Backing up file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/raspberrrypi_hat-rescue.lib” to file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/rescue-backup/raspberrrypi_hat-rescue-2020-08-09-19-13-19.lib”.
+Info: Backing up file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/raspberrrypi_hat-rescue.dcm” to file “/home/henrik/git/CableAgeing2/kicad/RPi_HAT/rescue-backup/raspberrrypi_hat-rescue-2020-08-09-19-13-19.dcm”.
+Info: Adding library “raspberrrypi_hat-rescue”, file “${KIPRJMOD}/raspberrrypi_hat-rescue.lib” to project symbol library table.
+Info: Adding library “raspberrypi_hat”, file “${KIPRJMOD}/project_components/raspberrypi_hat.lib” to project symbol library table.
+Symbol “3mm_Mounting_Hole” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “3mm_Mounting_Hole” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “3mm_Mounting_Hole” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “3mm_Mounting_Hole” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “OX40HAT” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “CONN_02X02” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “DMG2305UX” mapped to symbol library “raspberrypi_hat”.
+Symbol “DMMT5401” mapped to symbol library “raspberrypi_hat”.
+Symbol “DMMT5401” mapped to symbol library “raspberrypi_hat”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “GND” mapped to symbol library “power”.
+Symbol “GND” mapped to symbol library “power”.
+Symbol “CAT24C32” mapped to symbol library “raspberrypi_hat”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “CONN_01X02” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “GND” mapped to symbol library “power”.
+Symbol “GND” mapped to symbol library “power”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “R” mapped to symbol library “raspberrrypi_hat-rescue”.
+Symbol “GND” mapped to symbol library “power”.
+Info: Symbol library table mapping complete!

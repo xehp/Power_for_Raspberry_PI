@@ -1,0 +1,645 @@
+
+
+
+
+This is based on a template from branch RPi_HAT in:
+https://github.com/jonbuford/kicad-library.git
+
+
+
+
+J3
+	02x20 connector for RPi GPIO.
+	https://www.raspberrypi.org/documentation/usage/gpio/
+	https://github.com/raspberrypi/hats/blob/master/designguide.md#back-powering-the-pi-via-the-j8-gpio-header
+
+
+	Each of these 17 GPIO pins can deliver a maximum of 15mA current. And the sum of currents from all GPIO cannot exceed 50mA.
+
+
+	Dimensions: 5mm x 51mm x 16.5mm / 0.2" x 2" x 0.65", Pins: 3mm
+	Distance between boards is 13.5 mm.
+	https://www.adafruit.com/product/1992
+
+	GPIO HEADER FOR RASPBERRYPI A+/B
+		digikey:1528-1969-ND
+
+	Hex Standoff Threaded M3 Nylon 0.530" (13.46mm) Natural
+		digikey:RPC1485-ND
+
+	The above "Distance between boards" did not match. It was more like 16 mm. 
+	To be an official HAT the requirement is:
+		It uses a GPIO connector that spaces the HAT between 10mm and 
+		12mm from the Pi (i.e. uses spacers between 10mm and 12mm).
+	We will use the 16 mm one for now. We make our own box/enclosure anyway.
+
+	In next version we shall use this one:
+		digikey:1528-2831-ND
+	That will make the HAT sit 5 mm lower and that is what RaspberryPI HAT requirements say it shall be.
+
+
+	Suggested GPIO for push buttons:
+	17, 22, 23, 27
+
+
+
+
+
+U2
+	The HAT spec requires this EEPROM with system information
+	to be in place in order to be called a HAT. It should be set up as write
+	protected (WP pin held high), so it may be desirable to either put a 
+	jumper as shown to enable writing, or to hook up a spare IO pin to do so.
+
+	We can skip this for now. We do not sell this item as an official Raspberry PI HAT anyway.
+
+	HAT requirements:
+		https://hackaday.io/project/20482-designing-a-raspberry-pi-hat
+		https://github.com/raspberrypi/hats
+			It has a valid ID EEPROM (including vendor info, GPIO map and valid device tree information).
+		TODO So we need the format for this info.
+
+	This one was out of stock.
+	digikey:CAT24C32WI-GT3CT-ND
+
+	Perhaps this will work as well? Have not tested.
+	digikey:AT24C32E-SSHM-TCT-ND
+
+
+	Then this info shall be stored in the EEPROM, see:
+		https://github.com/raspberrypi/hats/blob/master/eeprom-format.md
+
+
+	STMicroelectronics
+	M24C02-WMN6TP
+	EEPROM EEPROM 2Kb (256 x 8) I2C SOIC-8_150mil RoHS
+	jlcpcb:C7562
+
+
+R6, R8
+	R_0805, 3900 Ohm
+	3.9 kOhms ±5% 0.1W, 1/10W Chip Resistor 0805
+	digikey:A126369CT-ND
+
+	Alternativ
+		digikey:RHM3.9KKCT-ND
+
+	3.9kΩ ±1% 0.125W ±200ppm/℃ 0805 Chip Resistor
+	jlcpcb:C17614	
+
+R20
+	220 Ohm
+	220Ω ±1% 0.25W ±100ppm/℃ 1206 Chip Resistor
+	jlcpcb:C17957
+
+
+
+R29
+	R_0805, 10 kOhm
+	See also R28 (use same)
+	digikey:RNCP0805FTD10K0CT-ND
+	
+	Chip Resistor - Surface Mount 10KOhms ±1% 1/8W 0805 RoHS
+	jlcpcb:C17414
+
+
+
+
+J9
+	EEPROM WRITE ENABLE
+
+	Use same as J6 (the column that was not needed there)
+	digikey:2057-PH2-06-UA-ND
+
+
+R11
+	0 Ohm
+	Skip this for now.
+
+
+J21
+	J21: connector for 24 Volt power input.
+	2 Kopplingsplintar - ledning till kort Lodrätt till kortet 0,138" (3,50mm) Genomgående hål, böjt stift
+	digikey:A123848-ND
+
+
+J22
+	Input for UPS power down signal.
+
+
+F21
+	PTC RESET FUSE 90V 1.85A RADIAL
+		digikey:507-1344-ND
+
+
+
+
+D21
+	generic diode >= 50 V, >= 2 A
+
+	Schottky Barrier Diodes (SBD) SMA(DO-214AC) RoHS"	
+	SMA,DO-214AC
+	jlcpcb:C22452
+
+
+	older design:
+	SMC
+		Vishay Intertech, SS36-E3/57T
+		60V 3A 750mV @ 3A SMC(DO-214AB) Schottky Barrier Diodes (SBD) RoHS
+		digikey:SS36-E3/57TGICT-ND
+		jlcpcb:C35722
+
+		Old
+			Thrue hole
+				NTE156
+					Elfa:170-20-225
+				ON Semiconductor, 1N5402G
+					digikey:1N5402GOS-ND
+
+
+		SMD:
+			DIODE GEN PURP 600V 3A SMC 
+			DO-214AB, SMC 
+			digikey:S3J-FDICT-ND
+
+
+
+		On the PCB the symbol is a little unusual. 
+
+		On the schematic it is:
+
+		Anode  ----|>|----  Cathode
+
+
+		On PCB it looks like this:
+		
+		        -------+
+		Anode          | Cathode
+		        -------+
+	      
+	 	The real diode looks like this:
+		
+		       +-------+-+
+		Anode  |       | |  Cathode
+		       +-------+-+
+
+
+
+
+
+D1 ???
+
+	Diode, 40V 1A 600mV @ 1A SOD-123 Schottky Barrier Diodes (SBD) RoHS
+	SOD-123
+	jlcpcb:C8598
+
+
+	older design:
+		Diode_SMD:D_SOT-23_ANK
+	
+		Dioder Standard 100V 200mA (DC) Ytmontering SOT-23-3 (TO-236)
+
+		80V is good enough.
+		digikey:TBAS16LMCT-ND‎
+
+		1 ----|>|---- 3
+		2 = nc
+
+		So pin 3 connects to R28.
+		Hmm, the above does not match the PCB.
+		Or maybe it will work its just the numbering that differ.
+
+
+		Will use this one (same issue with pin numbering though, will update drawing later):
+		Diode Standard 100V 200mA (DC) Surface Mount SOT-23-3 (TO-236)
+
+			Anode 1 ----|>|---- 3 Cathode
+
+				  +---+
+				1-|   |
+				  |   |-3
+				2-|   |
+				  +---+
+
+			digikey:‎BAS16LT1GOSCT-ND‎
+
+
+D39
+	Red 615~630nm 0805 Light Emitting Diodes (LED) RoHS
+	jlcpcb:C84256
+
+
+U21
+	Isolerad modul DC-DC-omvandlare 1 Utgång 5V    4A 9V - 36V Ingång
+		digikey:102-6267-ND
+
+
+	The Raspberry HAT specification say:
+		If back powering via the GPIO connector the HAT must be able to supply a minimum
+		of 1.3A continuously to the Pi (but ability to supply 2A continuously recommended).
+	This give 4 amps so plenty of margin.
+
+
+	It shall have capacitors about 100 uF on input and output side but
+	will load it only 50% so less capacitors should do.
+
+
+
+	TODO:
+		Did not really need an isolated module, could use a cheeper like this one:
+			digikey:P78E05-1000
+		Will require changes in the PCB though.		
+
+
+U60
+	MAX232ESE+T
+	RS232 2/2 116Kbps 5V SOIC-16_150mil RoHS
+	SOIC-16_3.9x9.9x1.27P
+	NOTE This need 5 Volt Vcc (3.3 Volt is not enough)
+	jlcpcb:C26860	
+
+
+U70
+	DC-DC 5 Volt
+	Recom Power, R-78E5.0-0.5
+	digikey:945-1648-5-ND
+
+
+C21, C22, C23, C28, C71, C71
+	Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 50V 1206 RoHS
+	jlcpcb:C13585
+
+
+C25, C26, C27
+	Cheramic capacitor >=33 uF, >= 10 Volt
+	Want solid state (not electrolytic).
+
+	47uF ±20% 10V X5R 1206 Multilayer Ceramic Capacitors MLCC - SMD/SMT RoHS
+	jlcpcb:C96123
+
+D24, D25
+	LED with builtin resistor for 5V
+
+
+D26
+	SMD, 
+		TVS SMB(DO-214AA) RoHS, SMB-DO-214AA-0
+		Brightking Elec (TAIWAN) P6SMB6.8CA
+		jlcpcb:C78395
+
+
+	previous designs (THT):
+		Zener diode, 5.0 to 6.8 Volt.
+		Littelfuse SA5.0A 	
+		ESD Suppressors / TVS Diodes SA5.0A Uni-Directional
+		mouser:576-SA5.0A 
+
+
+		Littelfuse Inc.
+		‎SA5.0A‎
+		TVS DIODE 5V 9.2V DO204AC 
+		digikey:SA5.0ALFCT-ND‎
+
+	previous designs (SMD):
+
+		Zener 6.8 Volt
+		SOT-23-3 AKA TO-236
+		Zener Diode 6.8V 250mW ±5% Surface Mount TO-236AB
+		digikey:1727-2942-1-ND
+
+D27
+	Zener >=30 Volt
+
+	TVS DIODE 33V 69.7V DO15
+	STMicroelectronics (VA) / P6KE39A
+	digikey:497-14733-1-ND
+
+	older design:
+	 	Zener Diode 33V 225mW ±6% Surface Mount SOT-23-3 (TO-236) 
+		digikey:BZX84C33LT1GOSCT-ND 
+
+U22, U23
+	Optocoupler
+	OPTOISO 5.3KV TRANSISTOR 6DIP
+	digikey:CNY17F-4X-ND
+
+	Socket 6 pin DIL
+
+
+
+	Alternative design:
+		Everlight Elec, EL357N(B)(TA)-G
+		SMD, SOP-4_4.1x4.4x2.54P
+		jlcpcb:C6649
+
+
+
+TX31
+	Transmitter
+			BROADCOM LIMITED  SP000063858  SFH 757V - 100MBD TRANSMITTER 
+			mouser: 630-SP000063858
+			farnell:1863195
+		Or
+			digikey:516-2213-ND			
+
+RX31
+	Receiver
+			Fiberoptiska sändare, mottagare och transceivrar SFH 551/1-1V 
+			mouser:630-SP000063855
+		or:
+			BROADCOM LIMITED  SFH 551/1-1V  RECEIVER, 5MBPS,
+			farnell:1335305
+		or:
+			SFH551/1-1V
+			digikey:516-2455-ND
+
+			NOTE:
+				Minimum Supply Voltage for Function V CC min 4 Volts  (3.3 Volts is too little)
+				The SFH551/1-1 receiver is a transimpedance amplifier
+				with a TTL open-collector output stage, therefore a
+				pull-up resistor of at least 330 Ω is necessary
+
+
+Q39
+		Q_PNP_BEC
+		Transistors (NPN/PNP) PNP 600mA 150V SOT-23(SOT-23-3) RoHS
+		jlcpcb:C8326
+
+
+R1
+	470 Ohm
+	jlcpcb:C17710
+
+
+R2
+	3.3kΩ ±1% 0.125W ±100ppm/℃ 0805 Chip Resistor
+	jlcpcb:C26010
+
+R27, R31
+	pullup to 5 V for RX31
+
+
+	Before 2021-06-15
+
+	Chip Resistor - Surface Mount 1KOhms ±1% 1/8W 0805 RoHS
+	jlcpcb:C17513
+
+
+	previous version:
+		Used 1 kOhm.
+		Use same as R27
+		digikey:RNCP0805FTD1K00CT
+		digikey:RNCP0805FTD1K00CT-ND
+		
+		
+	2021-06-15
+	2.2kΩ ±1% 0.125W ±100ppm/℃ 0805 Chip Resistor
+	jlcpcb:C17520
+		
+
+
+R32
+	Resistor for TX31, Max allowed If on Transmitter is 50 mA and forward voltage is typical 2 V. 
+	So if signal is 3.3 V then R shall be R=U/I = 1.3/0.05 Ohm = 26 Ohm minimum
+	Also the RPi GPIO shall not be loaded more than 15 mA (at least not continously).
+	With 100 Ohm the current should be (3.3-2)/100 -> 13 mA that should be OK.
+	Perhaps 68 or 82 Ohm is better?
+	Power: Minimum 0.1 W, but 1/4 W is better.
+
+	100Ω ±1% 0.25W ±200ppm/℃ 1206 Chip Resistor - Surface Mount RoHS
+	jlcpcb:C17901
+	
+	2021-06-15 
+	will use 150 Ohm (previous design used 100 Ohm)
+	Chip Resistor - Surface Mount 150Ohms ±1% 1/8W 0805
+	jlcpcb:C17471
+	
+		
+	previous version:
+		digikey:2019-RK73H2ATTD82R0FCT-ND
+
+
+
+R22, R28
+	330 Ohm
+	330Ω ±1% 0.125W ±100ppm/℃ 0805 Chip Resistor - Surface Mount RoHS
+	jlcpcb:C17630
+
+R26
+	100Ω ±1% 0.125W ±100ppm/℃ 0805 Chip Resistor
+	jlcpcb:C17408
+	
+	
+	Calculation
+	Voltage over R26 is about 2 Volt.
+	About 10 mA is wanted.
+	So 200 Ohm or something like that. Power 2*2/100 -> 80 mW
+	100 Ohm should give 20 mA, also OK.
+	
+	
+	
+R25
+	100 KOhm
+	Chip Resistor - Surface Mount 100KOhms ±1% 1/8W 0805 RoHS
+	jlcpcb:C17407	
+
+C1, C2, C24, C29, C31
+
+	Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V 0805 RoHS
+	jlcpcb:C49678
+
+	CAP CER 0.1UF 50V Y5V 0805
+	digikey:478-1421-1-ND‎
+
+
+C32
+	capacitor 0.01 uF for TX31
+	Will skip this one for now.
+	digikey:1276-1009-1-ND
+
+	Multilayer Ceramic Capacitors MLCC - SMD/SMT 10nF 50V 0805 RoHS
+	jlcpcb:C1710
+
+
+
+J40
+	Connector 02x03 for I2C and real time clock module.
+	digikey:2057-PH2-06-UA-ND
+
+	The Real time clock in mind for this connector is:
+	Adafruit PiRTC - PCF8523 Real Time Clock
+	elfa:301-29-222
+	digikey:1528-1871-ND
+
+	Install drivers for this, see: software_setup.txt
+
+	CR1220 Battery cell
+	digikey:P033-ND
+
+
+
+U50
+	Displaymoduler - LCD, grafiska  Röd, grön, blå (RGB) TFT - färg SPI 1,54" (39,12mm) 240 x 240
+	https://learn.adafruit.com/adafruit-1-3-and-1-54-240-x-240-wide-angle-tft-lcd-displays/pinouts
+	digikey:1528-2580-ND
+
+
+
+	Need some connectors also.
+	
+	This is 32 pins, break of as many as needed
+		digikey:SAM1121-32-ND
+
+
+	Or use this allready cut by digikey:
+		digikey:SAM1122-12-ND
+
+
+	Riser between boards:
+		Samtec Inc. EW-50-12-L-S-500 
+		digikey:SAM15155-ND
+
+
+
+PCB
+	1) 
+	Plot to gerber (at least these files):
+	board-B_Cu.gbr
+	board-B_Mask.gbr
+	board-B_Paste.gbr
+	board-B_SilkS.gbr
+	board-Edge_Cuts.gbr
+	board-F_Cu.gbr
+	board-F_Mask.gbr
+	board-F_Paste.gbr
+	board-F_SilkS.gbr
+	board-In1_Cu.gbr
+	board-In2_Cu.gbr
+
+	These two probably not needed but I always sent them so not sure.
+	board-NPTH.drl
+	board-PTH.drl
+
+	Make a zip of the above.
+	
+	2) 
+	Go to schematic -> tools -> generate Bill Of Material "bom2grouped_csv_jlcpcb".
+
+	3) 
+	Back to layout -> fabrication outputs -> Footprint position (pos) file.
+	Edit the first line in pos file. Replace as follows:
+	Ref  -> Designator
+	PosX -> Mid X
+	PosY -> Mid Y
+	Rot  -> Rotation
+	Side -> Layer
+
+	These 3 files can then be uploaded to jlcpcb.com for production.
+
+
+
+
+
+
+
+Alternative display
+	digikey:E2154CS091-ND
+	digikey:B3000MS034-ND
+	
+
+
+
+Super capacitors
+
+	The plan is to make a separate box with some capacitors and a diode.
+        The diode is there in case capacitor box is incorrectly connected.
+
+	10 in series, minimum 10F:
+		
+		CAPACITOR 10F -10% +30% 2.7V TH
+		digikey:1572-1759-ND
+
+		CAP 100F -10% +20% 2.7V T/H
+		digikey:2085-TPL-100/22X45F-ND
+
+
+	Energy in a capacitor is E=(1/2)*C*U*U
+
+	So if RPi uses P (Watts) and we can use at least half of the energy stored
+	we can run the RPi for this time:
+		T=(1/2)*(E/P) = (1/4)*C*U*U/P
+
+		With P = 10 W
+		C = 1 F (10 capacitors of 10F in series)
+		U = 23 V (24 - some drop over diodes)
+
+		T = (1/4)*(1)*23*23/10 = 13 s
+
+	That should be enough to save and halt.
+
+
+
+Perhaps move the display 0.25 mm more to left (towards center of HAT board).
+Note that U21 & J40 must also move same.
+
+
+TODO Power
+If RPi has halted due to power loss but power is back before UPS is discharged the RPi will not boot.
+One way would be to make something using the CRTL on U21 to turn 5 Volt off and on again when 
+power returns to main power input. To turn U21 off pull CTRL pin low.
+A brownout detector would be good also.
+We should probably have had a reset button also.
+And a watchdog timer while at it.
+
+
+TODO Serial ports
+According to this we can perhaps use some of the additional UARTS that Raspberrt PI 4 have.
+https://www.raspberrypi.org/forums/viewtopic.php?t=244528
+So:
+dtoverlay -h uart2
+This say that uart2 (AKA /dev/ttyAMA1) is on GPIO 0-3. 
+A bit inconvenient since GPIO 0 & 1 is used for ID EEPROM on the HAT.
+
+dtoverlay -h uart3
+Much better, GPIO 4 & 5 are currently not used.
+So uart3 AKA /dev/ttyAMA2 we could use.
+So I guess these are the pins:
+GPIO4: TXD3
+GPIO5: RXD3
+
+
+
+
+
+
+	Spare Thrue hole position for capacitors.
+		22µF ±20% 50V Keramiska kondensatorer X7S Radial
+		digikey:490-16958-ND
+
+
+
+
+	Resistor_SMD:R_2512_6332Metric
+	Ska tåla 24 Volt över sig.
+	1 kOhm, 1 W
+		1 kOhms ±5% 1W Chipresistor 2512 (6432 metrisk) Automotive AEC-Q200 Tjock film
+		digikey:541-1.0KXCT-ND
+
+
+	10 kOhm
+	Resistor for 24 Volt input via opto coupler.	
+	When using 12 Volt 3.3 kOhm was fine.
+	LED will have about 2 Volt so using 10 kOhm which gives about 22 mA.
+	Use same as R29
+	digikey:RNCP0805FTD10K0CT-ND
+	
+	
+	
+	MOSFET
+	2N7002
+	
+	N-Channel Logic Level Enhancement Mode Field Effect Transistor
+	https://www.elfa.se/Web/Downloads/_t/ds/BSS138_eng_tds.pdf
+	BSS138
+
+
