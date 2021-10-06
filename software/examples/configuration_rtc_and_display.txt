@@ -1,0 +1,8 @@
+
+
+
+
+Error: Could not open file `/dev/i2c-1' or `/dev/i2c/1' : No such file or directory.
+https://www.raspberrypi.org/forums/viewtopic.php?t=115080
+
+

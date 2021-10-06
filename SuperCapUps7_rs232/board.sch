@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:board-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -3294,4 +3293,6 @@ Text Label 10050 6350 0    50   ~ 0
 Dev_TxD
 Text Notes -2850 6450 0    50   ~ 0
 Change 2021-09-15\nR51 was 22k\nR41 was 100k\nThat together was too much.\nChanged R41 to 68k\n\nNOTE Patch for existing boards: Short R51 so we get only 100k left.\n
+Text Notes -2850 7100 0    50   ~ 0
+TODO Add a connector with some measuring points.
 $EndSCHEMATC

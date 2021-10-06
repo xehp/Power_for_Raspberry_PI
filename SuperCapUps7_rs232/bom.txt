@@ -6,6 +6,10 @@ C30, C31... C36
 	digikey:2085-TPLC-3R8/220MR16X25-ND
 	digikey:283-HS1625-3R8227-R-ND‎
 
+
+	WARNING! When testing these failed within weeks. Do not know if my design is bad or if these components are bad.
+	
+
 	Other designs
 
 		CAP 100F -10% +20% 2.7V T/H
@@ -32,7 +36,7 @@ C30, C31... C36
 		Advanced Linear Devices Inc. ALD810023SCL
 		digikey:1014-1257-5-ND
 
-
+		NOTE! Remember to adjust settings in software if changing from hybrid 3.8 Volt to mor standard 2.7 Volts!
 
 
 
@@ -274,6 +278,18 @@ R18
 R19
 	10 KOhm	
 
+R30... R36
+	0.25W ±1% ±200ppm/℃ 100Ω 1206 Chip Resistor - Surface Mount ROHS
+	jlcpcb:C17901
+
+	With 100 Ohm and 0.25 W the max allowed voltage over this shunting resistor is 5 Volts.
+	If voltage is more then perhaps some sort of PWM can be used.	
+
+
+	TODO Alternative not footprint compatible but more power:
+		100Ω ±1% ±200ppm/℃ 1W 2512 Chip Resistor - Surface Mount ROHS
+		jlcpcb:C35218
+		
 
 R40, R41, R64
 	100 KOhm	
@@ -318,7 +334,12 @@ R78, R79
 	27 Ohm
 	jlcpcb:C17594
 	
+
+R88
+	33 Ohm THT TO220-2
 	
+	TODO: Use 3 or so of 2512 Chip resistors like jlcpcb: 
+	C35218, C105063, C175441, C24920, C146856, C146884, C175280, C160930, C723332
 
 U1
 	Isolerad modul DC-DC-omvandlare 1 Utgång 5V    4A 9V - 36V Ingång

@@ -5,7 +5,7 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "Raspberry Pi HAT"
-Date "2021-06-12"
+Date "2021-10-03"
 Rev "A"
 Comp ""
 Comment1 ""
@@ -648,7 +648,6 @@ Wire Wire Line
 	6400 6300 5400 6300
 Text Label 5400 6300 0    50   ~ 0
 GPIO8_TFT_CS
-NoConn ~ 6400 6800
 Wire Wire Line
 	2000 4050 1100 4050
 Text Label 1100 4050 0    50   ~ 0
@@ -704,7 +703,6 @@ Wire Wire Line
 	7500 10800 7500 11000
 Wire Wire Line
 	1800 10750 2900 10750
-NoConn ~ 2000 3750
 Wire Wire Line
 	3200 3350 4200 3350
 Text Label 4200 3350 2    50   ~ 0
@@ -2095,4 +2093,12 @@ Text Label 1800 9700 0    60   ~ 0
 P5V
 Wire Wire Line
 	1250 9700 1800 9700
+Wire Wire Line
+	2000 3750 1100 3750
+Text Label 1100 3750 0    50   ~ 0
+GPIO6_TEAR
+Wire Wire Line
+	6400 6800 5400 6800
+Text Label 5400 6800 0    50   ~ 0
+GPIO6_TEAR
 $EndSCHEMATC

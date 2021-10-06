@@ -1,0 +1,187 @@
+
+
+Enable I2C and SPI
+
+	It can be done using "sudo raspi-config" and then under interfaces.
+
+	Or with an editor (such as nano):
+		https://www.raspberrypi.org/forums/viewtopic.php?t=115080
+
+		Edit /boot/config.txt
+			Find and uncomment:
+				dtparam=i2c_arm=on
+				dtparam=i2s=on
+				dtparam=spi=on
+				
+			Perhaps add this also:
+				dtparam=i2c1=on
+
+
+Install needed SW
+	sudo apt-get install python-smbus i2c-tools
+	
+Connect the RTC 
+	https://www.adafruit.com/product/3386
+	https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/set-up-and-test-i2c
+
+	Check if there is something on the bus:
+		sudo i2cdetect -y 1 
+
+		At pos 68 it should now be 68.
+
+
+	Set RTC Time
+		Edit /boot/config.txt and add to the end of the file:
+			dtoverlay=i2c-rtc,pcf8523
+
+		reboot and check:
+			sudo i2cdetect -y 1
+	
+			At pos 68 it should now be UU.
+	
+		Disable the "fake hwclock" which interferes with the 'real' hwclock	
+			sudo apt-get -y remove fake-hwclock
+			sudo update-rc.d -f fake-hwclock remove
+			sudo systemctl disable fake-hwclock		
+
+		Edit /lib/udev/hwclock-set and comment out these three lines:
+			#if [ -e /run/systemd/system ] ; then
+			# exit 0
+			#fi		
+		Also comment out the two lines
+			/sbin/hwclock --rtc=$dev --systz --badyear
+			/sbin/hwclock --rtc=$dev --systz
+		
+		Read the RTC (its probably not correct time at this point):
+			sudo hwclock -r
+
+		So do this:
+			sudo hwclock -w
+
+
+	Reboot without networking to see if it works.
+
+
+Check display
+	https://learn.adafruit.com/adafruit-1-3-and-1-54-240-x-240-wide-angle-tft-lcd-displays/python-wiring-and-setup
+		ST7789 and ST7735-based Displays 1.3", 1.54", and 2.0" IPS TFT Display
+
+		Example software will expect the following:
+
+			Vin 	- 5Volt, pin 2 (3.3V can also be used).
+			GND 	- GND, pin 6 etc
+			CLK 	- SPI clock. On the Raspberry Pi, thats SLCK, GPIO 11, pin 23
+			MOSI	- MOSI, GPIO10, pin 19
+			CS		- SPI Chip Select pin. CE0, pin 24
+			RST		- GPIO 24 (this can be changed later), pin 18. **
+					  NOTE! On our first PCB (before 2020-09-29) RST was connected to GPIO26, not GPIO 24!
+					  So some additional SW changes will be needed compared to example code if using those first versions.
+			D/C 	- SPI Chip Select pin. GPIO 25, pin 22.
+
+
+		Install python3
+			sudo apt-get update
+			sudo apt-get upgrade
+			sudo apt-get install python3-pip
+			sudo pip3 install --upgrade setuptools
+			sudo apt-get install -y python3 git python3-pip
+			sudo update-alternatives --install /usr/bin/python python $(which python2) 1
+			sudo update-alternatives --install /usr/bin/python python $(which python3) 2
+			sudo update-alternatives --config python
+
+
+	Enable I2C and SPI
+		See above
+		Check:
+			ls /dev/i2c* /dev/spi*
+		Result something like:
+			/dev/i2c-1  /dev/spidev0.0  /dev/spidev0.1		
+		
+		Install Python libraries
+			pip3 install RPI.GPIO
+			pip3 install adafruit-blinka
+		
+		
+		Create a new file called blinkatest.py
+- - - - - - - - - - - - -
+import board
+import digitalio
+import busio
+
+print("Hello blinka!")
+
+# Try to great a Digital input
+pin = digitalio.DigitalInOut(board.D4)
+print("Digital IO ok!")
+
+# Try to create an I2C device
+i2c = busio.I2C(board.SCL, board.SDA)
+print("I2C ok!")
+
+# Try to create an SPI device
+spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
+print("SPI ok!")
+
+print("done!")			
+- - - - - - - - - - - - -
+
+		Try it:
+		python3 blinkatest.py
+
+		It should say:
+			Hello blinka!
+			Digital IO ok!
+			I2C ok!
+			SPI ok!
+			done!
+
+
+		Try the status LED also
+- - - - - - - - - - - - -
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(16,GPIO.OUT)
+
+for x in range(10):
+        print(x)
+        print("LED on")
+        GPIO.output(16,GPIO.HIGH)
+        time.sleep(1)
+        print("LED off")
+        GPIO.output(16,GPIO.LOW)
+        time.sleep(1)
+
+while 1:
+        GPIO.output(16,GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(16,GPIO.LOW)
+        time.sleep(1)
+- - - - - - - - - - - - -
+
+		The run that:
+		python3 LED.py
+
+		The status LED should be blinking.
+
+
+
+sudo pip3 install adafruit-circuitpython-rgb-display
+
+
+python3 rgb_display_pillow_image.py
+
+
+
+
+
+https://unix.stackexchange.com/questions/138804/how-to-transform-a-text-file-into-a-picture
+
+sudo apt install imagemagick
+
+
+
+
+
+
